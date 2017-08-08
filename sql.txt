@@ -1,0 +1,35 @@
+create table usuario(
+id serial primary key,
+nome varchar(30),
+telefone varchar(20),
+senha varchar(20),
+email varchar(50)
+)
+
+
+
+create table cultivo(
+id serial primary key ,
+nome varchar(30),
+ variedade varchar(50),
+obs varchar(200))
+
+
+create table complemento(
+id serial primary key ,
+nome varchar(50),
+marca varchar(50),
+tipo varchar(50),
+obs varchar(200)
+)
+
+create table safra (
+id serial primary key ,
+codcultivo int,
+codcomplemento int,
+datainicio date,
+areacultivada float,
+kiloscultivo float,
+kiloscomplemento float,
+foreign key (codcultivo) references cultivo(id),
+foreign key (codcomplemento) references complemento(id))
